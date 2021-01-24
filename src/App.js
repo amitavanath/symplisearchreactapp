@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import axios from "axios";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import SearchResultList from "./components/SearchResultList";
+import SearchAdd from "./components/SearchAdd";
+
+import "./App.css";
+
+class App extends React.Component {
+  state = {
+    searchresults: [],
+  };
+
+  componentDidMount() {
+    axios
+      .get("/search")
+      .then((res) => this.setState({ searchresults: res.data }));
+  }
+
+  onSearchSubmit = (searchterm, companyuri) => {
+    axios
+      .get("/search", {
+        params: {
+          searchterm: searchterm,
+          companyuri: companyuri,
+        },
+      })
+      .then((res) => this.setState({ searchresults: res.data }));
+  };
+
+  render() {
+    return (
+      <div className="container">
+        <SearchAdd onSearchSubmit={this.onSearchSubmit} />
+        <SearchResultList searchResults={this.state.searchresults} />
+      </div>
+    );
+  }
 }
 
 export default App;

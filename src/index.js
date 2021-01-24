@@ -4,6 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import axios from "axios";
+
+
+//axios.defaults.baseURL = "https://todochallengeapi.azurewebsites.net/api";
+axios.defaults.baseURL = "https://localhost:44334/api";
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
