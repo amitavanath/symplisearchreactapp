@@ -29,9 +29,10 @@ class SearchAdd extends Component {
       <div>
         <div className="search-bar ui segment">
           <form className="ui form" onSubmit={this.onFormSubmit}>
-            <div class="ui segment">
-              <div class="ui two column very relaxed grid">
-                <div class="column">
+            <div className="ui segment">
+              <div className="ui two column very relaxed grid">
+                <div className="column">
+                  <label>Search Terms</label>
                   <input
                     type="text"
                     name="searchterms"
@@ -41,7 +42,8 @@ class SearchAdd extends Component {
                     className="ui input focus"
                   />
                 </div>
-                <div class="column">
+                <div className="column">
+                  <label>Company URI</label>
                   <input
                     type="text"
                     name="companyuri"
