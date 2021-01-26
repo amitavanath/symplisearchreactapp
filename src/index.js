@@ -7,8 +7,8 @@ import reportWebVitals from './reportWebVitals';
 import axios from "axios";
 
 
-//axios.defaults.baseURL = "https://todochallengeapi.azurewebsites.net/api";
-axios.defaults.baseURL = "https://localhost:44334/api";
+axios.defaults.baseURL = "https://symplisearchapi.azurewebsites.net/api";
+// axios.defaults.baseURL = "https://localhost:44334/api";
 
 ReactDOM.render(
   <React.StrictMode>
